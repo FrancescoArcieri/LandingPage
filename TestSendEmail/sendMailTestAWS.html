@@ -1,0 +1,36 @@
+<!--
+=========================================================
+* Test for email sending with AWS SES and smtp.js
+=========================================================
+* Copyright 2020 Francesco Arcieri (http://www.francescoarcieri.it)
+=========================================================
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://smtpjs.com/v3/smtp.js"></script>
+	<script type="text/javascript">
+		function sendEmail() {
+			Email.send({
+				Host: "email-smtp.eu-west-1.amazonaws.com",
+				Username: "<SES SMTP username>",
+				Password: "<SES SMTP password>",
+				To: "<to@yourdomain.com>",
+				From: "<from@yourdomain.com>",
+				Subject: "TEST",
+				Body: "TEST",
+			})
+			.then(function(message){
+				alert("mail sent successfully")
+			});
+		}
+	</script>
+</head>
+<body>
+	<form method="post">
+		<input type="button" value="Send Email" onclick="sendEmail()"/>
+	</form>
+</body>
+</html>
